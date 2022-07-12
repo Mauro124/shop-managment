@@ -37,17 +37,17 @@ export const Navbar = () => {
                     className="fadeIn">
                     <NextLink href='/category/men' passHref>
                         <Link>
-                            <Button color={asPath === '/Home' ? 'primary' : 'info'}>Home</Button>
+                            <Button variant='text' color={asPath === '/Home' ? 'primary' : 'info'}>Home</Button>
                         </Link>
                     </NextLink>
                     <NextLink href='/category/women' passHref>
                         <Link>
-                            <Button color={asPath === '/products' ? 'primary' : 'info'}>Products</Button>
+                            <Button variant='text' color={asPath === '/products' ? 'primary' : 'info'}>Products</Button>
                         </Link>
                     </NextLink>
                     <NextLink href='/category/kid' passHref>
                         <Link>
-                            <Button color={asPath === '/contact' ? 'primary' : 'info'}>Contact</Button>
+                            <Button variant='text' color={asPath === '/contact' ? 'primary' : 'info'}>Contact</Button>
                         </Link>
                     </NextLink>
                 </Box>
@@ -103,7 +103,7 @@ export const Navbar = () => {
                 </IconButton>
 
 
-                <Button onClick={toggleSideMenu}>
+                <Button variant='text' onClick={toggleSideMenu}>
                     Menú
                 </Button>
 

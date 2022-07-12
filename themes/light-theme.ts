@@ -1,6 +1,4 @@
 import { createTheme } from '@mui/material/styles';
-import { red, } from '@mui/material/colors';
-
 
 export const lightTheme = createTheme({
     palette: {
@@ -12,7 +10,7 @@ export const lightTheme = createTheme({
             main: '#3A64D8'
         },
         info: {
-            main: '#fff'
+            main: '#000000'
         }
     },
     components: {
@@ -34,38 +32,31 @@ export const lightTheme = createTheme({
             }
         },
 
-        MuiTypography: {
-            styleOverrides: {
-                h1: {
-                    fontSize: 30,
-                    fontWeight: 600
-                },
-                h2: {
-                    fontSize: 20,
-                    fontWeight: 400
-                },
-                subtitle1: {
-                    fontSize: 18,
-                    fontWeight: 600
-                }
-            }
-        },
-
 
         MuiButton: {
             defaultProps: {
                 variant: 'contained',
-                size: 'small',
                 disableElevation: true,
-                color: 'info'
+                color: 'info',
             },
+            variants: [{
+                props: { variant: 'text' },
+                style: {
+                    backgroundColor: 'transparent',
+                    color: 'black',
+                    ":hover": {
+                        color: 'secondary.main',
+                        backgroundColor: 'transparent',
+                        transition: 'all 0.3s ease-in-out'
+                    }
+                }
+            }],
             styleOverrides: {
                 root: {
-                    textTransform: 'none',
-                    boxShadow: 'none',
+                    padding: '12px 8px',
                     borderRadius: 10,
                     ":hover": {
-                        backgroundColor: 'rgba(0,0,0,0.05)',
+                        backgroundColor: 'rgba(0,0,0,0.5)',
                         transition: 'all 0.3s ease-in-out'
                     }
                 }
