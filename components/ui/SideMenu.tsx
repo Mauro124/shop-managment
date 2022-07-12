@@ -5,14 +5,14 @@ import { AccountCircleOutlined, AdminPanelSettings, CategoryOutlined, Confirmati
 
 import { useRouter } from 'next/router';
 import { UIContext } from '../../context/ui';
+import { AuthContext } from '../../context/auth';
 
 
 export const SideMenu = () => {
 
     const router = useRouter();
     const { isMenuOpen, toggleSideMenu } = useContext(UIContext);
-    // const { user, isLoggedIn, logout } = useContext(AuthContext);
-    const isLoggedIn = true;
+    const { user, isLoggedIn, logout } = useContext(AuthContext);
     const role = 'admin';
 
     const [searchTerm, setSearchTerm] = useState('');
@@ -152,35 +152,11 @@ export const SideMenu = () => {
 
                                 <ListItem
                                     button
-                                    onClick={() => navigateTo('/admin/')}>
+                                    onClick={() => navigateTo('/')}>
                                     <ListItemIcon>
                                         <DashboardOutlined />
                                     </ListItemIcon>
                                     <ListItemText primary={'Dashboard'} />
-                                </ListItem>
-
-                                <ListItem button>
-                                    <ListItemIcon>
-                                        <CategoryOutlined />
-                                    </ListItemIcon>
-                                    <ListItemText primary={'Productos'} />
-                                </ListItem>
-                                <ListItem
-                                    button
-                                    onClick={() => navigateTo('/admin/orders')}>
-                                    <ListItemIcon>
-                                        <ConfirmationNumberOutlined />
-                                    </ListItemIcon>
-                                    <ListItemText primary={'Ordenes'} />
-                                </ListItem>
-
-                                <ListItem
-                                    button
-                                    onClick={() => navigateTo('/admin/users')}>
-                                    <ListItemIcon>
-                                        <AdminPanelSettings />
-                                    </ListItemIcon>
-                                    <ListItemText primary={'Usuarios'} />
                                 </ListItem>
                             </>
                         )

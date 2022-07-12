@@ -1,11 +1,24 @@
-import { NextPage } from 'next'
-import { Layout } from '../components/layouts'
+import type { NextPage } from 'next';
+import { Typography } from '@mui/material';
 
-const Home: NextPage = () => {
+import { FullScreenLoading } from '../components/ui';
+import { DashboardPage } from './admin';
+import { Layout } from '../components/layouts';
+
+
+const HomePage: NextPage = () => {
+
+  // const { products, isLoading } = useProducts('/products');
+
   return (
-    <Layout title='Home' subTitle='Inflation device'>
-    </Layout>
-  )
+    <>
+      {
+        false
+          ? <FullScreenLoading />
+          : <DashboardPage />
+      }
+    </>
+  );
 }
 
-export default Home
+export default HomePage

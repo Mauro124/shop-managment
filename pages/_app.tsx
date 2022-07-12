@@ -3,15 +3,21 @@ import type { AppProps } from 'next/app'
 import { CssBaseline, ThemeProvider } from '@mui/material'
 import { lightTheme } from '../themes/index'
 import { UIProvider } from '../context/ui'
+import { SessionProvider } from "next-auth/react"
 
-function MyApp({ Component, pageProps }: AppProps) {
+function MyApp({
+  Component,
+  pageProps: { session, ...pageProps },
+}: AppProps) {
   return (
-    <UIProvider>
-      <ThemeProvider theme={lightTheme}>
-        <CssBaseline />
-        <Component {...pageProps} />
-      </ThemeProvider>
-    </UIProvider>
+    <SessionProvider session={session}>
+      <UIProvider>
+        <ThemeProvider theme={lightTheme}>
+          <CssBaseline />
+          <Component {...pageProps} />
+        </ThemeProvider>
+      </UIProvider>
+    </SessionProvider>
   )
 }
 

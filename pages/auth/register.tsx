@@ -2,18 +2,23 @@ import { Copyright } from '@mui/icons-material';
 import { Avatar, Button, Card, Checkbox, FormControlLabel, Grid, Paper, TextField, Typography } from '@mui/material';
 import { Box } from '@mui/system';
 import { NextPage } from 'next'
+import { signIn } from 'next-auth/react';
 import Link from 'next/link';
 import React from 'react'
 import { Logo } from '../../components/ui/Logo';
 
-const LoginPage: NextPage = () => {
-  const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
+const RegisterPage: NextPage = () => {
+  const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
     const data = new FormData(event.currentTarget);
+    let email = data.get('email');
+    let password = data.get('password');
+
     console.log({
-      email: data.get('email'),
-      password: data.get('password'),
+      email,
+      password,
     });
+    await signIn('credentials', { email, password });
   };
 
   return (
@@ -100,4 +105,4 @@ const LoginPage: NextPage = () => {
   )
 }
 
-export default LoginPage;
+export default RegisterPage;
